@@ -1,1 +1,3 @@
-﻿
+﻿using HabbitLogger;
+
+HabitInterface.MainMenu();
