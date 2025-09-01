@@ -1,0 +1,9 @@
+El proyecto normal solo pide un habito (tabla), que es sobre el cual se va a trabajar.
+Entonces, va a existir una tabla aparte que registre el id del habito, nombre, cantidad de la meta, unidad de medida de la meta.
+
+La(s) otra(s) tabla(s) sera(n) para que el usuario pueda tener un seguimiento del habito.
+Esta(s) tabla(s) tendra(n): El id, el nombre, la cantidad que se logró, y un booleano si se logró o no la meta, y la fecha.
+
+Cuando se va a ingresar un registro, te manda a otro menù con opciones de los habitos ya registrados en la tabla para elegir.
+Para actualizar y eliminar, no se neceista un menu, se hará por id. 
+Aunque tambien se podría hacer por menú de spectre console (revisitar al final).
