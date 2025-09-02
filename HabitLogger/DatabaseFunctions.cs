@@ -5,9 +5,9 @@ namespace HabbitLogger;
 
 internal class DatabaseFunctions
 {
-    internal void CreateHabitTable()
+    internal void CreateHabitTable(string table_name)
     {
-        bool tableExist = false;
+        List<string> tables = new();
         
         using (var connection = new SqliteConnection("Data Source=habit_logger.db"))
         {
@@ -20,15 +20,15 @@ internal class DatabaseFunctions
             {
                 while (reader.Read())
                 {
-                    if (reader.GetString(0) == "habit") tableExist = true; break;
+                    tables.Add(reader.GetString(0));
                 }
             }
 
-            if (!tableExist)
+            if (tables.BinarySearch(table_name) < 0)
             {
                 command.CommandText =
-                @"
-                    CREATE TABLE habit (
+                $@"
+                    CREATE TABLE {table_name} (
                         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                         name TEXT NOT NULL,
                         quantity INTEGER NOT NULL,
