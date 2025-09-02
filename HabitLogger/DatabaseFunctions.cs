@@ -5,7 +5,7 @@ namespace HabbitLogger;
 
 internal class DatabaseFunctions
 {
-    internal void CreateHabitTable(string table_name)
+    internal void CreateTable(string table_name)
     {
         List<string> tables = new();
         

@@ -2,5 +2,5 @@
 
 DatabaseFunctions databaseFunctions = new();
 
-databaseFunctions.CreateHabitTable("habit");
+databaseFunctions.CreateTable("habit");
 HabitInterface.MainMenu();
