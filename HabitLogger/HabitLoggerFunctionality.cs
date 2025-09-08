@@ -2,5 +2,8 @@
 
 internal class HabitLoggerFunctionality
 {
+    internal void InsertHabitLog()
+    {
 
+    }
 }
