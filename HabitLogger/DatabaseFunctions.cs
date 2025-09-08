@@ -26,15 +26,31 @@ internal class DatabaseFunctions
 
             if (tables.BinarySearch(table_name) < 0)
             {
-                command.CommandText =
-                $@"
-                    CREATE TABLE {table_name} (
-                        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                        name TEXT NOT NULL,
-                        quantity INTEGER NOT NULL,
-                        unit TEXT NOT NULL
-                    );
-                ";
+                if (table_name == "habit")
+                {
+                    command.CommandText =
+                    $@"
+                        CREATE TABLE {table_name} (
+                            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                            name TEXT NOT NULL,
+                            quantity_goal INTEGER NOT NULL,
+                            unit TEXT NOT NULL
+                        );
+                    ";
+                }
+                else if (table_name == "habit_log")
+                {
+                    command.CommandText =
+                    $@"
+                        CREATE TABLE {table_name} (
+                            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                            name TEXT NOT NULL,
+                            quantity INTEGER NOT NULL,
+                            goal_achieved BOOLEAN NOT NULL,
+                            date DATE NOT NULL
+                        );
+                    ";
+                }
 
                 command.ExecuteNonQuery();
             }
