@@ -57,9 +57,27 @@ internal class DatabaseFunctions
         }
     }
 
-    internal void Insert(SqliteCommand command)
+    internal void Insert()
     {
+        using (var connection = new SqliteConnection("Data Source=habit_logger.db"))
+        {
+            connection.Open();
 
+            var command = connection.CreateCommand();
+
+            command.CommandText =
+            @"
+                INSERT INTO habit (name, quantity, goal_achieved, date)
+                values (@Name, @Quantity, @Goal_achieved, @Date)
+            ";
+
+            command.Parameters.AddWithValue("@Name", "");
+            command.Parameters.AddWithValue("@Quantity", "");
+            command.Parameters.AddWithValue("@Goal_achieved", "");
+            command.Parameters.AddWithValue("@Date", "");
+
+            command.ExecuteNonQuery();
+        }
     }
 
     internal void Delete(SqliteCommand command)
