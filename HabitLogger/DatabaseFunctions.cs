@@ -24,7 +24,7 @@ internal class DatabaseFunctions
                 }
             }
 
-            if (tables.BinarySearch(table_name) < 0)
+            if (!tables.Contains(table_name))
             {
                 if (table_name == "habit")
                 {
