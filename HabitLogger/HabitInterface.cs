@@ -42,6 +42,10 @@ internal class HabitInterface
     {
         Console.Clear();
 
-
+        var insertHabitLog = AnsiConsole.Prompt(
+            (IPrompt<string>)new SelectionPrompt<string>()
+            .Title("Select which habit type you wish to insert from")
+            .AddChoice("NewHabitType")
+        );
     }
 }
