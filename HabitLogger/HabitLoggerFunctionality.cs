@@ -1,13 +1,12 @@
 ﻿using HabbitLogger;
+using System.Runtime.CompilerServices;
 
 namespace HabitLogger;
 
 internal class HabitLoggerFunctionality
 {
-    internal void InsertHabitLog()
+    internal void InsertHabitLog(HabitInterface habitInterface)
     {
-        HabitInterface habitInterface = new();
-
-
+        habitInterface.InsertMenu();
     }
 }

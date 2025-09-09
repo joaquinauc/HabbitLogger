@@ -6,7 +6,7 @@ namespace HabbitLogger;
 
 internal class HabitInterface
 {
-    internal static void MainMenu()
+    internal void MainMenu()
     {
         Console.Clear();
 
@@ -21,7 +21,7 @@ internal class HabitInterface
         switch (mainMenuOption)
         {
             case MainMenuOptions.InsertRecord:
-                habitLoggerFunctionality.InsertHabitLog();
+                habitLoggerFunctionality.InsertHabitLog(this);
                 break;
 
             case MainMenuOptions.DeleteRecord:
@@ -43,9 +43,16 @@ internal class HabitInterface
         Console.Clear();
 
         var insertHabitLog = AnsiConsole.Prompt(
-            (IPrompt<string>)new SelectionPrompt<string>()
+            new SelectionPrompt<string>()
             .Title("Select which habit type you wish to insert from")
-            .AddChoice("NewHabitType")
+            .AddChoices("NewHabitType")
         );
+
+        DatabaseFunctions databaseFunctions = new();
+
+        if (insertHabitLog == "NewHabitType")
+        {
+            databaseFunctions.InsertHabit();
+        }
     }
 }
