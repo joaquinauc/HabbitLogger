@@ -36,6 +36,9 @@ internal class DatabaseFunctions
                             quantity_goal INTEGER NOT NULL,
                             unit TEXT NOT NULL
                         );
+                        
+                        INSERT INTO {table_name} (name, quantity_goal, unit)
+                        VALUES ('drink water', 4, 'lts')
                     ";
                 }
                 else if (table_name == "habit_log")
